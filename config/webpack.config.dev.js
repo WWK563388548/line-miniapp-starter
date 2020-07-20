@@ -7,6 +7,7 @@ const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
 const appPublic = path.resolve(__dirname, '../public');
 const appIndex = path.resolve(appSrc, 'index.js');
+const appHtml = path.resolve(appPublic, 'index.html');
 
 module.exports = {
   mode: 'development',
