@@ -1,4 +1,5 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
