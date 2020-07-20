@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
@@ -41,6 +42,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: appHtml,
       filename: 'index.html'
-    })
+    }),
+    new FriendlyErrorsWebpackPlugin(),
   ]
 }
