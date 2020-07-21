@@ -47,5 +47,15 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader?cacheDirectory',
+        include: [ appSrc ],
+        exclude: /node_modules/
+      }
+    ]
+  }
 }
