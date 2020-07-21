@@ -120,5 +120,14 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    alias: {
+      src: appSrc,
+      utils: path.resolve(__dirname, '../src/utils'),
+      pages: path.resolve(__dirname, '../src/pages'),
+      components: path.resolve(__dirname, '../src/components'),
+      modules: [path.resolve(__dirname, '../node_modules')], // Only can find modules from node_modules of project
+    }
   }
 }
