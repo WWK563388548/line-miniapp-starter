@@ -1,8 +1,15 @@
-function createElement() {
-    const ele = document.createElement('div');
-    ele.innerHTML = 'Hello, React';
-    const root = document.querySelector('#root');
-    root.appendChild(ele);
-}
+import React from 'react';
+import ReactDom from 'react-dom';
+import { HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import store from './store/index';
+import App from './App.jsx';
 
-createElement();
+ReactDom.render(
+  <Provider store={store}> 
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Provider>,
+  document.querySelector('#root')
+);

@@ -1,0 +1,1 @@
+export const AN_EXAMPLE = 'AN_EXAMPLE';
