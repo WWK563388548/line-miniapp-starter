@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
@@ -65,8 +66,9 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              modules: true,
-              localIdentName: '[local].[hash:8]'
+              modules: {
+                localIdentName: '[local].[hash:8]'
+              },
             }
           },
           {
@@ -78,7 +80,7 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sourceMap: enabledSourceMap
+              sourceMap: true
             }
           }
         ]
@@ -127,7 +129,7 @@ module.exports = {
       utils: path.resolve(__dirname, '../src/utils'),
       pages: path.resolve(__dirname, '../src/pages'),
       components: path.resolve(__dirname, '../src/components'),
-      modules: [path.resolve(__dirname, '../node_modules')], // Only can find modules from node_modules of project
+      modules: path.resolve(__dirname, '../node_modules'), // Only can find modules from node_modules of project
     }
   }
 }
