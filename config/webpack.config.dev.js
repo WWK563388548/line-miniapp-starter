@@ -55,6 +55,69 @@ module.exports = {
         loader: 'babel-loader?cacheDirectory',
         include: [ appSrc ],
         exclude: /node_modules/
+      },
+      // Handle css/sass/scss
+      {
+        test: /\.(css|sass|scss)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[local].[hash:8]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer()]
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: enabledSourceMap
+            }
+          }
+        ]
+      },
+      // Handle images
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      // Handle fonts
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      // Handle csv
+      {
+        test: /\.(csv|tsv)$/,
+        use: [
+          'csv-loader'
+        ]
+      },
+      // Handle xml
+      {
+        test: /\.xml$/,
+        use: [
+            'xml-loader'
+        ]
+      },
+      // Handle MakeDown
+      {
+        test: /\.md$/,
+        use: [
+          'html-loader',
+          'markdown-loader'
+        ]
       }
     ]
   }
