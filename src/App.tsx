@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from 'pages/Home.jsx';
-import Settings from 'pages/Settings.jsx';
-import Display from 'pages/Display.jsx';
-import NotFound from 'pages/NotFound.jsx';
+import Home from 'pages/Home';
+import Settings from 'pages/Settings';
+import Display from 'pages/Display';
+import NotFound from 'pages/NotFound';
 
 import './app.scss';
 
 
-const App = (props) => {
+const App = (props: any) => {
   return (
     <div className='app'>
       <Switch>
