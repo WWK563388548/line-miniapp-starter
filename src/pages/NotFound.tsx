@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const NotFound = (props) => {
+const NotFound = (props: any) => {
   return <div>404</div>;
 }
 

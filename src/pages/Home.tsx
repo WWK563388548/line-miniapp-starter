@@ -5,15 +5,17 @@ import {
   getTestData,
 } from '../store/example/actions';
 
-const Home = (props) => {
+const Home = (props: any) => {
   return (
     <div>Home</div>
   );
 }
 
-const mapStateToProps = (state) => ({
-  example: state.example,
-});
+const mapStateToProps = (state) => {
+  return {
+    example: state.example,
+  };
+};
 
 export default connect(
   mapStateToProps,
