@@ -52,7 +52,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         loader: 'babel-loader?cacheDirectory',
         include: [ appSrc ],
         exclude: /node_modules/
@@ -124,6 +124,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
     alias: {
       src: appSrc,
       utils: path.resolve(__dirname, '../src/utils'),

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "esnext",
+    "target": "es6",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "jsx": "react",
+    // check alias
+    "baseUrl": "./src",
+    "paths": {
+      "utils": ["utils/*"],
+      "pages": ["pages/*"],
+      "components": ["components/*"]
+    }
+  },
+  "include": [
+    "./src/**/*",
+  ]
+}
