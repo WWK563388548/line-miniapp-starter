@@ -1,15 +1,14 @@
 import 'whatwg-fetch';
 
-function parseJSON(response) {
+function parseJSON(response: any) {
   return response.json()
 }
 
 /**
  * Get request
  * @param {*} url 
- * @param {*} data 
  */
-export const get = (url, data) => {
+export const get = (url: string): Promise<any> => {
   return fetch(url, {
         cache: 'no-cache',
         headers: {
@@ -26,7 +25,7 @@ export const get = (url, data) => {
 * @param {*} url 
 * @param {*} data 
 */
-export const post = (url, data) => {
+export const post = (url: string, data: object): Promise<any> => {
   return fetch(url, {
     body: JSON.stringify(data), 
     cache: 'no-cache',
