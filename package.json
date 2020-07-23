@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --config webpack/webpack.config.dev.js",
+    "build": "webpack --config webpack/webpack.config.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -42,12 +43,14 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "markdown-loader": "^5.1.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
     "source-map-loader": "^1.0.1",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.7",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
