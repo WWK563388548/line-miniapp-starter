@@ -5,6 +5,8 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
@@ -27,6 +29,17 @@ module.exports = {
       filename: 'index.html'
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'public/styles/[name].[contenthash:8].css',
+      chunkFilename: 'public/styles/[name].[contenthash:8].chunk.css'
+    }),
+    new webpack.DefinePlugin({
+      // Defining NODE_ENV to production
+      'process.env': {
+          NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
@@ -40,6 +53,7 @@ module.exports = {
       {
         test: /\.(css|sass|scss)$/,
         use: [
+          MiniCssExtractPlugin.loader,
           "style-loader",
           {
             loader: "css-loader",
