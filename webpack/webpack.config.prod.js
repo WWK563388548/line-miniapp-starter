@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const appSrc = path.resolve(__dirname, '../src');
 const appDist = path.resolve(__dirname, '../dist');
@@ -53,8 +53,9 @@ module.exports = {
       {
         test: /\.(css|sass|scss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: "css-loader",
             options: {
@@ -123,7 +124,7 @@ module.exports = {
         uglifyOptions: {
           compress: {
               // Output warnings when Uglifyjs remove unused code
-              warnings: false,
+              // warnings: false,
               // Remove all console code
               drop_console: true,
               // collapse vars that be defined but only use once
