@@ -6,12 +6,11 @@ import Settings from 'pages/Settings';
 import Display from 'pages/Display';
 import NotFound from 'pages/NotFound';
 
-import './app.scss';
-
+import * as styles from './app.scss';
 
 const App = (props: any) => {
   return (
-    <div className='app'>
+    <div className={styles.app}>
       <Switch>
         <Route path='/settings' component={ Settings } />
         <Route path='/display' component={ Display } />

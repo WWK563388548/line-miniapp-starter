@@ -4,10 +4,11 @@ import {
   changeTestData,
   getTestData,
 } from '../store/example/actions';
+import * as styles from '../app.scss';
 
 const Home = (props: any) => {
   return (
-    <div>Home</div>
+    <div className={styles.home}>Home</div>
   );
 }
 

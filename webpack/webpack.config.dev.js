@@ -59,16 +59,18 @@ module.exports = {
       },
       // Handle css/sass/scss
       {
-        test: /\.(css|sass|scss)$/,
+        test: /\.(sc|sa|c)ss$/,
+        include: [path.join(__dirname, '../', './src')],
         use: [
-          "style-loader",
+          'style-loader',
+          "@teamsupercell/typings-for-css-modules-loader",
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true,
               modules: {
                 localIdentName: '[local].[hash:8]'
-              },
+              }
             }
           },
           {
@@ -77,12 +79,7 @@ module.exports = {
               plugins: () => [autoprefixer()]
             }
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          }
+          'sass-loader'
         ]
       },
       // Handle images
