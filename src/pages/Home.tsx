@@ -1,27 +1,23 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {
-  changeTestData,
-  getTestData,
-} from '../store/example/actions';
-import * as styles from '../app.scss';
+import TabBar from '../components/TabBar/TabBar';
 
 const Home = (props: any) => {
+  const { tab } = props;
   return (
-    <div className={styles.home}>Home</div>
+    <div>
+      <TabBar tabItems={tab.tabItems}/>
+    </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    example: state.example,
+    tab: state.tab,
   };
 };
 
 export default connect(
   mapStateToProps,
-  {
-    changeTestData,
-    getTestData,
-  }
+  {}
 )(Home);
