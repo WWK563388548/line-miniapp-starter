@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { reducer as exampleReducer } from './example/index';
+import { reducer as tabReducer } from './tabbar/index';
 
 export default combineReducers({
-  example: exampleReducer,
+  tab: tabReducer,
 });
